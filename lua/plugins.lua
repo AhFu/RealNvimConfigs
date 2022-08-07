@@ -23,6 +23,7 @@ function()
     require'myCustom.plugin.dap'(use)
     require'myCustom.plugin.undoTree'(use)
     require'myCustom.plugin.autosave'(use)
+    require'myCustom.plugin.vimFugitive'(use)
 end
 )
 
