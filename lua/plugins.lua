@@ -4,7 +4,6 @@ return require('packer').startup(
 function()
     use 'wbthomason/packer.nvim'
     use'junegunn/fzf.vim'
-
     require'myCustom.plugin.lspconfig'(use) -- Configurations for Nvim LSP
     require'myCustom.plugin.barbar'(use)
     require'myCustom.plugin.vimTree'(use)
@@ -25,7 +24,7 @@ function()
     require'myCustom.plugin.autosave'(use)
     require'myCustom.plugin.vimFugitive'(use)
     vim.keymap.set({'n'}, '<c-w>',function() require'myCustom.script.window'() end)
-end
+    end
 )
 
 
