@@ -48,10 +48,10 @@ return function()
             RefreshScreen()
         end
         if key=='c' then
-            vim.cmd([[:close]])
+            vim.cmd([[:call feedkeys("\<esc>:BufferClose\<tab>")]])
             RefreshScreen()
-            char_key=13 -- to exit the program
+            char_key=120 -- type "x"to exit the program
         end
-    until char_key==13
+    until char_key==120 --type "x" to exit the program
 end
 

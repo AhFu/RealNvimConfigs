@@ -23,8 +23,9 @@ function()
     require'myCustom.plugin.undoTree'(use)
     require'myCustom.plugin.autosave'(use)
     require'myCustom.plugin.vimFugitive'(use)
-    vim.keymap.set({'n'}, '<c-w>',function() require'myCustom.script.window'() end)
-    end
+    require'myCustom.plugin.hop'(use)
+end
+
 )
 
 

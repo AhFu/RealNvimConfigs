@@ -44,11 +44,11 @@ vim.keymap.set({'n'}, 'r', '<nop>' ) -- disable "repalce" operation in favour of
 vim.keymap.set({'n'}, 'r', '<C-r>' ) -- enable redo with r instead of ctrl + r
 
 --code helper Autoclosing
-vim.keymap.set({'i'}, '"', '""<left>')
-vim.keymap.set({'i'}, '\'', '\'\'<left>')
-vim.keymap.set({'i'}, '(', '()<left>')
-vim.keymap.set({'i'}, '[', '[]<left>')
-vim.keymap.set({'i'}, '{', '{<cr>}<esc><S-o>')
+--vim.keymap.set({'i'}, '"', '""<left>')
+--vim.keymap.set({'i'}, '\'', '\'\'<left>')
+--vim.keymap.set({'i'}, '(', '()<left>')
+--vim.keymap.set({'i'}, '[', '[]<left>')
+--vim.keymap.set({'i'}, '{', '{<cr>}<esc><S-o>')
 --vim.keymap.set({'i'}, '{<cr>', '{<cr>}<esc>o')
 
 --refresh screen
