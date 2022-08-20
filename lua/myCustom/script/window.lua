@@ -22,6 +22,7 @@ return function()
     end
     function RemoveVirtualText(nsID,markID)
         if ns_id~=nil and mark_id~=nil then
+            print (ns_id.."wtf"..mark_id)
             vim.api.nvim_buf_del_extmark(0,nsID,markID)
         end
     end
@@ -42,7 +43,7 @@ return function()
         end
     end
 
-    function FocusWindow(k)
+    function ChangeFocus(k)
         vim.b.key=k
         vim.cmd([[:exec "normal!" "\<c-w>" . b:key]])
     end
@@ -52,9 +53,9 @@ return function()
     end
 
 
-    repeat
-        ns_id,mark_id=   ShowVirtualText()
+        ns_id,mark_id=ShowVirtualText()
         RefreshScreen()
+    repeat
         char_key=vim.fn.getchar()
         key=vim.fn.nr2char(char_key)
         if char_key==8 or char_key==10 or char_key==11 or char_key==12 then
@@ -62,9 +63,9 @@ return function()
             RefreshScreen()
         end
         if key=='h' or key=='j' or key=='k' or key=='l' then
-            FocusWindow(key)
-            vim.cmd([[:sleep 100ms]])
             RemoveVirtualText(ns_id,mark_id)
+            ChangeFocus(key)
+            vim.cmd([[:sleep 100ms]])
             ns_id,mark_id=   ShowVirtualText()
             RefreshScreen()
             vim.cmd(":echo @%")
