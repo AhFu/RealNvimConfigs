@@ -24,14 +24,15 @@ vim.keymap.set({'i'}, '<m-o>', '<esc>O' )
 
 
 
-
+vim.keymap.set({'i','n'}, '<c-,>', '<nop>' ) -- next cursoir position
+vim.keymap.set({'i','n'}, '<c-,>', '<nop>' ) -- next cursoir position
 --netvigation
 vim.keymap.set({'i','n'}, '<C-h>', '<left>' )
 vim.keymap.set({'i','n'}, '<C-j>', '<down>' )
 vim.keymap.set({'i','n'}, '<C-k>', '<up>' )
 vim.keymap.set({'i','n'}, '<C-l>', '<right>' )
-vim.keymap.set({'i','n'}, '<C-left>', '<esc>g;' ) -- previous cursor position 
-vim.keymap.set({'i','n'}, '<C-right>', '<esc>g,' ) -- next cursoir position
+--vim.keymap.set({'i','n'}, '<C-left>', '<esc>g;' ) -- previous cursor position 
+--vim.keymap.set({'i','n'}, '<C-right>', '<esc>g,' ) -- next cursoir position
 
 -- copy, paste,redo and delete 
 vim.keymap.set({'i'}, '<C-u>', '<esc>ui') --undo in edit mode

@@ -15,7 +15,9 @@ return function()
             virt_text_pos = 'right_align',
             hl_mode='combine',
             sign_text="*",
-            priority=101
+            priority=1,
+            sign_hl_group='OnFocus',
+            cursorline_hl_group='OnFocus'
         }
         local mark_id= vim.api.nvim_buf_set_extmark(0, ns_id, line_num, col_num, opts)
         return ns_id, mark_id
@@ -107,6 +109,10 @@ return function()
             RemoveVirtualText(ns_id,mark_id)
             vim.cmd([[:BufferPick]])
             ns_id,mark_id=   ShowVirtualText()
+            RefreshScreen()
+        end
+        if key=='c' then
+            vim.cmd([[:close]])
             RefreshScreen()
         end
     until char_key==120 --type "x" to exit the program
