@@ -1,7 +1,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(
-function()
+function(use)
     use 'wbthomason/packer.nvim'
     use'junegunn/fzf.vim'
     require'myCustom.plugin.lspconfig'(use) -- Configurations for Nvim LSP
@@ -11,7 +11,7 @@ function()
     require'myCustom.plugin.treesit'(use)
     require'myCustom.plugin.colortheme'(use)
     require'myCustom.plugin.telescope'(use)
-    require'myCustom.plugin.cursorline'(use)
+  --  require'myCustom.plugin.cursorline'(use)
     require'myCustom.plugin.indentblinkline'(use)
     require'myCustom.plugin.lspsaga'(use)
     require'myCustom.plugin.cmp'(use)
@@ -24,7 +24,11 @@ function()
     require'myCustom.plugin.autosave'(use)
     require'myCustom.plugin.vimFugitive'(use)
     require'myCustom.plugin.hop'(use)
-end
+    require'myCustom.plugin.hlslens'(use)
+    require'myCustom.plugin.wordmotion'(use)
+    require'myCustom.plugin.illuminate'(use)
+    require'myCustom.plugin.vim-visual-multi'(use)
+    end
 
 )
 
