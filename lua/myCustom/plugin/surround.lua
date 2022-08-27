@@ -1,5 +1,5 @@
 return function(use)
     use{
-        'tpope/vim-surround'
+        'tpope/vim-surround',
     }
 end

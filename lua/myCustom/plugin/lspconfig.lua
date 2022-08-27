@@ -3,7 +3,7 @@ return function (use)
         'neovim/nvim-lspconfig',
         config=function ()
             --            require"myCustom.keymap.lsp.lspconfig-common"
-            require'myCustom.script.autocmds'
+            require'myCustom.autocmds.lsp'
             local on_attach =require"myCustom.keymap.lsp.lspconfig-onattach"
             local lsp_flags = {
                 -- This is the default in Nvim 0.7+

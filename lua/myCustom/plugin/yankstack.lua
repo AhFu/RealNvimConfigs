@@ -4,6 +4,7 @@ return function (use)
         config=function ()
             vim.g.yankstack_map_keys='custom_bind_in_yankstack.lua'
             require('myCustom.keymap.yankstack')
-        end
+        end,
+        requires='tpope/vim-repeat'
     }
 end

@@ -27,7 +27,7 @@ function(use)
     require'myCustom.plugin.hlslens'(use)
     require'myCustom.plugin.wordmotion'(use)
     require'myCustom.plugin.illuminate'(use)
-    require'myCustom.plugin.vim-visual-multi'(use)
+  --  require'myCustom.plugin.vim-visual-multi'(use)
     end
 
 )

@@ -57,7 +57,7 @@ return function()
             print("Split for NvimTree menu is not allowed.")
             return
         end
-        
+
         if k=="H" then
             vim.cmd([[:FocusSplitLeft]])
         end
@@ -100,6 +100,7 @@ return function()
         if key=='m'then
             vim.cmd([[:FocusMaximise]])
             RefreshScreen()
+            print ("EEEEEE")
         end
         if key=='e' then
             vim.cmd([[:FocusMaxOrEqual]])
@@ -111,11 +112,22 @@ return function()
             ns_id,mark_id=   ShowVirtualText()
             RefreshScreen()
         end
+        if key=='B' then
+            RemoveVirtualText(ns_id,mark_id)
+            vim.cmd([[:call feedkeys("\<esc>:BufferClose\<tab>")]])
+            char_key=120  -- must exit the program or key-input buffer will be consumed to getchar() function
+            RefreshScreen()
+        end
         if key=='c' then
+            RemoveVirtualText(ns_id,mark_id)
             vim.cmd([[:close]])
+            RefreshScreen()
+        end
+        if key=='C' then
+            RemoveVirtualText(ns_id,mark_id)
+            vim.cmd([[:qall]])
             RefreshScreen()
         end
     until char_key==120 --type "x" to exit the program
     RemoveVirtualText(ns_id,mark_id)
 end
-
