@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -69,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["any-jump.vim"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/any-jump.vim",
+    url = "https://github.com/pechorin/any-jump.vim"
+  },
   ["barbar.nvim"] = {
     config = { "\27LJ\2\2‚\4\0\0\3\0\t\0\0146\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0029\0\3\0005\1\4\0005\2\5\0=\2\6\0015\2\a\0=\2\b\1B\0\2\1K\0\1\0\17exclude_name\1\2\0\0\17package.json\15exclude_ft\1\2\0\0\15javascript\1\0\18\19icon_close_tab\bï™•\28icon_separator_inactive\bâ–Ž\23icon_custom_colors\1\20maximum_padding\3\1\20insert_at_start\1\21semantic_letters\2\fletters:asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP\rclosable\2\14auto_hide\1\19maximum_length\3\30\16icon_pinned\bï¤‚\nicons\2\26icon_separator_active\bâ–Ž\14animation\2\14clickable\2\rtabpages\2\18insert_at_end\1\28icon_close_tab_modified\bâ—\nsetup\15bufferline\27myCustom.keymap.barbar\frequire\0" },
     loaded = true,
@@ -128,6 +138,11 @@ _G.packer_plugins = {
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["kotlin-vim"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/kotlin-vim",
+    url = "https://github.com/udalov/kotlin-vim"
+  },
   ["lspsaga.nvim"] = {
     config = { "\27LJ\2\2e\0\0\3\0\4\0\t6\0\0\0'\1\1\0B\0\2\0029\1\2\0B\1\1\0016\1\0\0'\2\3\0B\1\2\1K\0\1\0 myCustom.keymap.lsp.lspsaga\18init_lsp_saga\flspsaga\frequire\0" },
     loaded = true,
@@ -140,6 +155,11 @@ _G.packer_plugins = {
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-cmp"] = {
     config = { "\27LJ\2\2¾\3\0\0\b\0\23\00026\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\0029\1\6\0005\2\14\0009\3\a\0009\3\b\0034\4\6\0005\5\t\0>\5\1\0045\5\n\0>\5\2\0045\5\v\0>\5\3\0045\5\f\0>\5\4\0045\5\r\0>\5\5\4B\3\2\2=\3\b\0026\3\4\0'\4\15\0B\3\2\2=\3\16\2B\1\2\0019\1\6\0009\1\17\1'\2\18\0005\3\20\0009\4\16\0009\4\19\0049\4\17\4B\4\1\2=\4\16\0039\4\a\0009\4\b\0044\5\3\0005\6\21\0>\6\1\0054\6\3\0005\a\22\0>\a\1\6B\4\3\2=\4\b\3B\1\3\1K\0\1\0\1\0\1\tname\fcmdline\1\0\1\tname\tpath\1\0\0\vpreset\6:\fcmdline\fmapping\28myCustom.keymap.lsp.cmp\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\1\0\1\tname\rnvim_lua\1\0\1\tname\nvsnip\fsources\vconfig\nsetup\bcmp\frequire\1\4\0\0\tmenu\fmenuone\rnoselect\16completeopt\bopt\bvim\0" },
     loaded = true,
@@ -147,7 +167,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-dap"] = {
-    config = { "\27LJ\2\2\30\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\topen\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\nclose\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\ncloseÏ\2\1\0\4\0\17\0%6\0\0\0'\1\1\0B\0\2\0029\0\2\0'\1\3\0B\0\2\0016\0\0\0'\1\4\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\1\5\0B\0\2\0016\0\0\0'\1\6\0B\0\2\0026\1\0\0'\2\4\0B\1\2\0029\2\a\0009\2\b\0029\2\t\0023\3\v\0=\3\n\0029\2\a\0009\2\f\0029\2\r\0023\3\14\0=\3\n\0029\2\a\0009\2\f\0029\2\15\0023\3\16\0=\3\n\0022\0\0€K\0\1\0\0\17event_exited\0\21event_terminated\vbefore\0\17dapui_config\22event_initialized\nafter\14listeners\bdap\28myCustom.keymap.lsp.dap\ndapui&~/.virtualenvs/debugpy/bin/python\nsetup\15dap-python\frequire\0" },
+    config = { "\27LJ\2\2\30\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\topen\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\nclose\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\nclose²\6\1\0\a\0#\0=6\0\0\0'\1\1\0B\0\2\0029\0\2\0'\1\3\0B\0\2\0016\0\0\0'\1\4\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\1\5\0B\0\2\0016\0\0\0'\1\6\0B\0\2\0026\1\0\0'\2\4\0B\1\2\0029\2\a\0009\2\b\0029\2\t\0023\3\v\0=\3\n\0029\2\a\0009\2\f\0029\2\r\0023\3\14\0=\3\n\0029\2\a\0009\2\f\0029\2\15\0023\3\16\0=\3\n\0029\2\17\0005\3\19\0005\4\20\0=\4\21\3=\3\18\0029\2\22\0004\3\3\0005\4\24\0006\5\25\0009\5\26\0059\5\27\5B\5\1\2=\5\28\0045\5\29\0=\5\30\4>\4\1\0035\4\31\0006\5\0\0'\6 \0B\5\2\0029\5!\5=\5\"\4>\4\2\3=\3\23\0022\0\0€K\0\1\0\14processId\17pick_process\14dap.utils\1\0\3\tname\22Attach to process\frequest\vattach\ttype\nnode2\routFiles\1\2\0\0\25/home/ubuntu/ts/*.js\bcwd\vgetcwd\afn\bvim\1\0\a\fprogram\f${file}\fconsole\23integratedTerminal\ttype\nnode2\tname\vLaunch\frequest\vlaunch\rprotocol\14inspector\15sourceMaps\2\15typescript\19configurations\targs\1\2\0\0009/home/ubuntu/vscode-node-debug2/out/src/nodeDebug.js\1\0\2\fcommand\tnode\ttype\15executable\nnode2\radapters\0\17event_exited\0\21event_terminated\vbefore\0\17dapui_config\22event_initialized\nafter\14listeners\bdap\28myCustom.keymap.lsp.dap\ndapui&~/.virtualenvs/debugpy/bin/python\nsetup\15dap-python\frequire\0" },
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
@@ -168,8 +188,13 @@ _G.packer_plugins = {
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-hlslens",
     url = "https://github.com/kevinhwang91/nvim-hlslens"
   },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
   ["nvim-lspconfig"] = {
-    config = { "\27LJ\2\2š\6\0\0\v\0*\0P6\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0025\1\3\0006\2\0\0'\3\4\0B\2\2\0029\2\5\0026\3\6\0009\3\a\0039\3\b\0039\3\t\3B\3\1\0A\2\0\0026\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\f\0&\4\5\4=\4\v\0036\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\r\0&\4\5\4=\4\v\0036\3\0\0'\4\14\0B\3\2\0029\3\15\0039\3\16\0035\4\17\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\20\0039\3\16\0035\4\21\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\22\0039\3\16\0035\4(\0005\5&\0005\6\24\0005\a\23\0=\a\25\0065\a\27\0005\b\26\0=\b\28\a=\a\29\0065\a!\0006\b\6\0009\b\30\b9\b\31\b'\t \0+\n\2\0B\b\3\2=\b\"\a=\a#\0065\a$\0=\a%\6=\6'\5=\5)\4B\3\2\1K\0\1\0\rsettings\1\0\0\bLua\1\0\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\0\5\26nvim_get_runtime_file\bapi\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\1\0\1\fversion\vLuaJIT\16sumneko_lua\1\0\0\18rust_analyzer\17capabilities\nflags\1\0\0\nsetup\fpyright\14lspconfig*:/home/ubuntu/lua-language-server/bin\29:/home/ubuntu/.local/bin\tPATH\benv\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\1\0\1\26debounce_text_changes\3–\1+myCustom.keymap.lsp.lspconfig-onattach\26myCustom.autocmds.lsp\frequire\0" },
+    config = { "\27LJ\2\2µ\a\0\0\v\0000\0k6\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0025\1\3\0006\2\0\0'\3\4\0B\2\2\0029\2\5\0026\3\6\0009\3\a\0039\3\b\0039\3\t\3B\3\1\0A\2\0\0026\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\f\0&\4\5\4=\4\v\0036\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\r\0&\4\5\4=\4\v\0036\3\0\0'\4\14\0B\3\2\0029\3\15\0039\3\16\0035\4\17\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\20\0039\3\16\0035\4\21\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\22\0039\3\16\0035\4(\0005\5&\0005\6\24\0005\a\23\0=\a\25\0065\a\27\0005\b\26\0=\b\28\a=\a\29\0065\a!\0006\b\6\0009\b\30\b9\b\31\b'\t \0+\n\2\0B\b\3\2=\b\"\a=\a#\0065\a$\0=\a%\6=\6'\5=\5)\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3*\0039\3\16\0035\4+\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3,\0039\3\16\0035\4-\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3.\0039\3\16\0035\4/\0=\1\18\4=\2\19\4B\3\2\1K\0\1\0\1\0\0\rtsserver\1\0\0\njdtls\1\0\0\27kotlin_language_server\rsettings\1\0\0\bLua\1\0\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\0\5\26nvim_get_runtime_file\bapi\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\1\0\1\fversion\vLuaJIT\16sumneko_lua\1\0\0\18rust_analyzer\17capabilities\nflags\1\0\0\nsetup\fpyright\14lspconfig*:/home/ubuntu/lua-language-server/bin\29:/home/ubuntu/.local/bin\tPATH\benv\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\1\0\1\26debounce_text_changes\3–\1+myCustom.keymap.lsp.lspconfig-onattach\26myCustom.autocmds.lsp\frequire\0" },
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
@@ -293,10 +318,10 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\2¾\3\0\0\b\0\23\00026\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\0029\1\6\0005\2\14\0009\3\a\0009\3\b\0034\4\6\0005\5\t\0>\5\1\0045\5\n\0>\5\2\0045\5\v\0>\5\3\0045\5\f\0>\5\4\0045\5\r\0>\5\5\4B\3\2\2=\3\b\0026\3\4\0'\4\15\0B\3\2\2=\3\16\2B\1\2\0019\1\6\0009\1\17\1'\2\18\0005\3\20\0009\4\16\0009\4\19\0049\4\17\4B\4\1\2=\4\16\0039\4\a\0009\4\b\0044\5\3\0005\6\21\0>\6\1\0054\6\3\0005\a\22\0>\a\1\6B\4\3\2=\4\b\3B\1\3\1K\0\1\0\1\0\1\tname\fcmdline\1\0\1\tname\tpath\1\0\0\vpreset\6:\fcmdline\fmapping\28myCustom.keymap.lsp.cmp\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\1\0\1\tname\rnvim_lua\1\0\1\tname\nvsnip\fsources\vconfig\nsetup\bcmp\frequire\1\4\0\0\tmenu\fmenuone\rnoselect\16completeopt\bopt\bvim\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\2Ç\1\0\0\3\0\t\0\0186\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0029\0\3\0005\1\4\0005\2\5\0=\2\6\1B\0\2\0016\0\0\0'\1\a\0B\0\2\0026\1\0\0'\2\b\0B\1\2\2K\0\1\0\21bufferline.state\21nvim-tree.events\tview\1\0\1\tside\nright\1\0\1\18open_on_setup\2\nsetup\14nvim-tree\29myCustom.keymap.nvimTree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
+-- Config for: focus.nvim
+time([[Config for focus.nvim]], true)
+try_loadstring("\27LJ\2\2T\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\2\17winhighlight\2\15cursorline\1\nsetup\nfocus\frequire\0", "config", "focus.nvim")
+time([[Config for focus.nvim]], false)
 -- Config for: barbar.nvim
 time([[Config for barbar.nvim]], true)
 try_loadstring("\27LJ\2\2‚\4\0\0\3\0\t\0\0146\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0029\0\3\0005\1\4\0005\2\5\0=\2\6\0015\2\a\0=\2\b\1B\0\2\1K\0\1\0\17exclude_name\1\2\0\0\17package.json\15exclude_ft\1\2\0\0\15javascript\1\0\18\19icon_close_tab\bï™•\28icon_separator_inactive\bâ–Ž\23icon_custom_colors\1\20maximum_padding\3\1\20insert_at_start\1\21semantic_letters\2\fletters:asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP\rclosable\2\14auto_hide\1\19maximum_length\3\30\16icon_pinned\bï¤‚\nicons\2\26icon_separator_active\bâ–Ž\14animation\2\14clickable\2\rtabpages\2\18insert_at_end\1\28icon_close_tab_modified\bâ—\nsetup\15bufferline\27myCustom.keymap.barbar\frequire\0", "config", "barbar.nvim")
@@ -313,26 +338,26 @@ time([[Config for vim-deep-space]], false)
 time([[Config for vim-yankstack]], true)
 try_loadstring("\27LJ\2\2\0\0\2\0\6\0\b6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\1K\0\1\0\30myCustom.keymap.yankstack\frequire!custom_bind_in_yankstack.lua\23yankstack_map_keys\6g\bvim\0", "config", "vim-yankstack")
 time([[Config for vim-yankstack]], false)
--- Config for: focus.nvim
-time([[Config for focus.nvim]], true)
-try_loadstring("\27LJ\2\2T\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\2\17winhighlight\2\15cursorline\1\nsetup\nfocus\frequire\0", "config", "focus.nvim")
-time([[Config for focus.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\2Ç\1\0\0\3\0\t\0\0186\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0029\0\3\0005\1\4\0005\2\5\0=\2\6\1B\0\2\0016\0\0\0'\1\a\0B\0\2\0026\1\0\0'\2\b\0B\1\2\2K\0\1\0\21bufferline.state\21nvim-tree.events\tview\1\0\1\tside\nright\1\0\1\18open_on_setup\2\nsetup\14nvim-tree\29myCustom.keymap.nvimTree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\2\5\0\0\4\0 \0/6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\n\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2=\2\v\0015\2\r\0005\3\f\0=\3\14\0025\3\15\0=\3\16\0025\3\17\0=\3\18\0025\3\19\0=\3\20\0025\3\21\0=\3\22\0025\3\23\0=\3\24\2=\2\25\0015\2\26\0004\3\0\0=\3\14\0024\3\0\0=\3\16\0025\3\27\0=\3\18\0025\3\28\0=\3\20\0024\3\0\0=\3\22\0024\3\0\0=\3\24\2=\2\29\0014\2\0\0=\2\30\0014\2\0\0=\2\31\1B\0\2\1K\0\1\0\15extensions\ftabline\22inactive_sections\1\2\0\0\rlocation\1\2\0\0\rfilename\1\0\0\rsections\14lualine_z\1\2\0\0\rlocation\14lualine_y\1\2\0\0\rprogress\14lualine_x\1\4\0\0\rencoding\15fileformat\rfiletype\14lualine_c\1\2\0\0\rfilename\14lualine_b\1\4\0\0\vbranch\tdiff\16diagnostics\14lualine_a\1\0\0\1\2\0\0\tmode\foptions\1\0\0\23disabled_filetypes\1\2\0\0\rNvimTree\23section_separators\1\0\2\tleft\bî‚°\nright\bî‚²\25component_separators\1\0\2\tleft\bî‚±\nright\bî‚³\1\0\4\17globalstatus\1\25always_divide_middle\2\ntheme\tauto\18icons_enabled\2\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
 -- Config for: nvim-dap
 time([[Config for nvim-dap]], true)
-try_loadstring("\27LJ\2\2\30\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\topen\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\nclose\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\ncloseÏ\2\1\0\4\0\17\0%6\0\0\0'\1\1\0B\0\2\0029\0\2\0'\1\3\0B\0\2\0016\0\0\0'\1\4\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\1\5\0B\0\2\0016\0\0\0'\1\6\0B\0\2\0026\1\0\0'\2\4\0B\1\2\0029\2\a\0009\2\b\0029\2\t\0023\3\v\0=\3\n\0029\2\a\0009\2\f\0029\2\r\0023\3\14\0=\3\n\0029\2\a\0009\2\f\0029\2\15\0023\3\16\0=\3\n\0022\0\0€K\0\1\0\0\17event_exited\0\21event_terminated\vbefore\0\17dapui_config\22event_initialized\nafter\14listeners\bdap\28myCustom.keymap.lsp.dap\ndapui&~/.virtualenvs/debugpy/bin/python\nsetup\15dap-python\frequire\0", "config", "nvim-dap")
+try_loadstring("\27LJ\2\2\30\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\topen\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\nclose\31\0\0\1\1\1\0\4-\0\0\0009\0\0\0B\0\1\1K\0\1\0\1À\nclose²\6\1\0\a\0#\0=6\0\0\0'\1\1\0B\0\2\0029\0\2\0'\1\3\0B\0\2\0016\0\0\0'\1\4\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\1\5\0B\0\2\0016\0\0\0'\1\6\0B\0\2\0026\1\0\0'\2\4\0B\1\2\0029\2\a\0009\2\b\0029\2\t\0023\3\v\0=\3\n\0029\2\a\0009\2\f\0029\2\r\0023\3\14\0=\3\n\0029\2\a\0009\2\f\0029\2\15\0023\3\16\0=\3\n\0029\2\17\0005\3\19\0005\4\20\0=\4\21\3=\3\18\0029\2\22\0004\3\3\0005\4\24\0006\5\25\0009\5\26\0059\5\27\5B\5\1\2=\5\28\0045\5\29\0=\5\30\4>\4\1\0035\4\31\0006\5\0\0'\6 \0B\5\2\0029\5!\5=\5\"\4>\4\2\3=\3\23\0022\0\0€K\0\1\0\14processId\17pick_process\14dap.utils\1\0\3\tname\22Attach to process\frequest\vattach\ttype\nnode2\routFiles\1\2\0\0\25/home/ubuntu/ts/*.js\bcwd\vgetcwd\afn\bvim\1\0\a\fprogram\f${file}\fconsole\23integratedTerminal\ttype\nnode2\tname\vLaunch\frequest\vlaunch\rprotocol\14inspector\15sourceMaps\2\15typescript\19configurations\targs\1\2\0\0009/home/ubuntu/vscode-node-debug2/out/src/nodeDebug.js\1\0\2\fcommand\tnode\ttype\15executable\nnode2\radapters\0\17event_exited\0\21event_terminated\vbefore\0\17dapui_config\22event_initialized\nafter\14listeners\bdap\28myCustom.keymap.lsp.dap\ndapui&~/.virtualenvs/debugpy/bin/python\nsetup\15dap-python\frequire\0", "config", "nvim-dap")
 time([[Config for nvim-dap]], false)
 -- Config for: lspsaga.nvim
 time([[Config for lspsaga.nvim]], true)
 try_loadstring("\27LJ\2\2e\0\0\3\0\4\0\t6\0\0\0'\1\1\0B\0\2\0029\1\2\0B\1\1\0016\1\0\0'\2\3\0B\1\2\1K\0\1\0 myCustom.keymap.lsp.lspsaga\18init_lsp_saga\flspsaga\frequire\0", "config", "lspsaga.nvim")
 time([[Config for lspsaga.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\2\2š\6\0\0\v\0*\0P6\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0025\1\3\0006\2\0\0'\3\4\0B\2\2\0029\2\5\0026\3\6\0009\3\a\0039\3\b\0039\3\t\3B\3\1\0A\2\0\0026\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\f\0&\4\5\4=\4\v\0036\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\r\0&\4\5\4=\4\v\0036\3\0\0'\4\14\0B\3\2\0029\3\15\0039\3\16\0035\4\17\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\20\0039\3\16\0035\4\21\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\22\0039\3\16\0035\4(\0005\5&\0005\6\24\0005\a\23\0=\a\25\0065\a\27\0005\b\26\0=\b\28\a=\a\29\0065\a!\0006\b\6\0009\b\30\b9\b\31\b'\t \0+\n\2\0B\b\3\2=\b\"\a=\a#\0065\a$\0=\a%\6=\6'\5=\5)\4B\3\2\1K\0\1\0\rsettings\1\0\0\bLua\1\0\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\0\5\26nvim_get_runtime_file\bapi\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\1\0\1\fversion\vLuaJIT\16sumneko_lua\1\0\0\18rust_analyzer\17capabilities\nflags\1\0\0\nsetup\fpyright\14lspconfig*:/home/ubuntu/lua-language-server/bin\29:/home/ubuntu/.local/bin\tPATH\benv\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\1\0\1\26debounce_text_changes\3–\1+myCustom.keymap.lsp.lspconfig-onattach\26myCustom.autocmds.lsp\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-hlslens
+time([[Config for nvim-hlslens]], true)
+try_loadstring("\27LJ\2\2¾\4\0\5\18\0\19\1f6\5\0\0009\5\1\0059\5\2\5\b\5\0\0X\5\2€+\5\1\0X\6\1€+\5\2\0,\6\b\0006\t\3\0009\t\4\t\18\n\4\0B\t\2\2)\n\1\0\1\n\t\0X\n\18€'\n\5\0\18\v\n\0009\n\6\n\18\f\t\0)\r\1\0\0\r\4\0X\r\2€+\r\1\0X\14\1€+\r\2\0\4\5\r\0X\r\2€'\r\a\0X\14\1€'\r\b\0B\n\4\2\18\6\n\0X\n\14€\t\t\0\0X\n\v€\b\4\0\0X\n\2€+\n\1\0X\v\1€+\n\2\0\4\5\n\0X\n\2€'\6\a\0X\n\1€'\6\b\0X\n\1€'\6\t\0006\n\n\0008\v\3\1B\n\2\3\15\0\2\0X\f\27€\21\f\1\0\6\6\t\0X\r\t€'\r\v\0\18\14\r\0009\r\6\r\18\15\6\0\18\16\3\0\18\17\f\0B\r\5\2\18\a\r\0X\r\a€'\r\f\0\18\14\r\0009\r\6\r\18\15\3\0\18\16\f\0B\r\4\2\18\a\r\0004\r\3\0005\14\r\0>\14\1\r5\14\14\0>\a\1\14>\14\2\r\18\b\r\0X\f\14€'\f\15\0\18\r\f\0009\f\6\f\18\14\6\0\18\15\3\0B\f\4\2\18\a\f\0004\f\3\0005\r\16\0>\r\1\f5\r\17\0>\a\1\r>\r\2\f\18\b\f\0009\f\18\0)\r\0\0\23\14\0\n\23\15\0\v\18\16\b\0\18\17\2\0B\f\6\1K\0\1\0\fsetVirt\1\3\0\0\0\17HlSearchLens\1\3\0\0\6 \vIgnore\f[%s %d]\1\3\0\0\0\21HlSearchLensNear\1\3\0\0\6 \vIgnore\f[%d/%d]\15[%s %d/%d]\vunpack\5\bâ–¼\bâ–²\vformat\t%d%s\babs\tmath\18searchforward\6v\bvim\2w\1\0\3\0\a\0\f6\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0029\0\3\0005\1\5\0003\2\4\0=\2\6\1B\0\2\1K\0\1\0\18override_lens\1\0\0\0\nsetup\fhlslens\28myCustom.keymap.hlslens\frequire\0", "config", "nvim-hlslens")
+time([[Config for nvim-hlslens]], false)
 -- Config for: vim-auto-save
 time([[Config for vim-auto-save]], true)
 try_loadstring("\27LJ\2\2+\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0\14auto_save\6g\bvim\0", "config", "vim-auto-save")
@@ -341,10 +366,17 @@ time([[Config for vim-auto-save]], false)
 time([[Config for undotree]], true)
 try_loadstring("\27LJ\2\2_\0\0\2\0\3\0\a6\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\1K\0\1\0\31myCustom.autocmds.undoTree\29myCustom.keymap.undoTree\frequire\0", "config", "undotree")
 time([[Config for undotree]], false)
--- Config for: nvim-hlslens
-time([[Config for nvim-hlslens]], true)
-try_loadstring("\27LJ\2\2¾\4\0\5\18\0\19\1f6\5\0\0009\5\1\0059\5\2\5\b\5\0\0X\5\2€+\5\1\0X\6\1€+\5\2\0,\6\b\0006\t\3\0009\t\4\t\18\n\4\0B\t\2\2)\n\1\0\1\n\t\0X\n\18€'\n\5\0\18\v\n\0009\n\6\n\18\f\t\0)\r\1\0\0\r\4\0X\r\2€+\r\1\0X\14\1€+\r\2\0\4\5\r\0X\r\2€'\r\a\0X\14\1€'\r\b\0B\n\4\2\18\6\n\0X\n\14€\t\t\0\0X\n\v€\b\4\0\0X\n\2€+\n\1\0X\v\1€+\n\2\0\4\5\n\0X\n\2€'\6\a\0X\n\1€'\6\b\0X\n\1€'\6\t\0006\n\n\0008\v\3\1B\n\2\3\15\0\2\0X\f\27€\21\f\1\0\6\6\t\0X\r\t€'\r\v\0\18\14\r\0009\r\6\r\18\15\6\0\18\16\3\0\18\17\f\0B\r\5\2\18\a\r\0X\r\a€'\r\f\0\18\14\r\0009\r\6\r\18\15\3\0\18\16\f\0B\r\4\2\18\a\r\0004\r\3\0005\14\r\0>\14\1\r5\14\14\0>\a\1\14>\14\2\r\18\b\r\0X\f\14€'\f\15\0\18\r\f\0009\f\6\f\18\14\6\0\18\15\3\0B\f\4\2\18\a\f\0004\f\3\0005\r\16\0>\r\1\f5\r\17\0>\a\1\r>\r\2\f\18\b\f\0009\f\18\0)\r\0\0\23\14\0\n\23\15\0\v\18\16\b\0\18\17\2\0B\f\6\1K\0\1\0\fsetVirt\1\3\0\0\0\17HlSearchLens\1\3\0\0\6 \vIgnore\f[%s %d]\1\3\0\0\0\21HlSearchLensNear\1\3\0\0\6 \vIgnore\f[%d/%d]\15[%s %d/%d]\vunpack\5\bâ–¼\bâ–²\vformat\t%d%s\babs\tmath\18searchforward\6v\bvim\2w\1\0\3\0\a\0\f6\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0029\0\3\0005\1\5\0003\2\4\0=\2\6\1B\0\2\1K\0\1\0\18override_lens\1\0\0\0\nsetup\fhlslens\28myCustom.keymap.hlslens\frequire\0", "config", "nvim-hlslens")
-time([[Config for nvim-hlslens]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\2\2µ\a\0\0\v\0000\0k6\0\0\0'\1\1\0B\0\2\0016\0\0\0'\1\2\0B\0\2\0025\1\3\0006\2\0\0'\3\4\0B\2\2\0029\2\5\0026\3\6\0009\3\a\0039\3\b\0039\3\t\3B\3\1\0A\2\0\0026\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\f\0&\4\5\4=\4\v\0036\3\6\0009\3\n\0036\4\6\0009\4\n\0049\4\v\4'\5\r\0&\4\5\4=\4\v\0036\3\0\0'\4\14\0B\3\2\0029\3\15\0039\3\16\0035\4\17\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\20\0039\3\16\0035\4\21\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3\22\0039\3\16\0035\4(\0005\5&\0005\6\24\0005\a\23\0=\a\25\0065\a\27\0005\b\26\0=\b\28\a=\a\29\0065\a!\0006\b\6\0009\b\30\b9\b\31\b'\t \0+\n\2\0B\b\3\2=\b\"\a=\a#\0065\a$\0=\a%\6=\6'\5=\5)\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3*\0039\3\16\0035\4+\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3,\0039\3\16\0035\4-\0=\1\18\4=\2\19\4B\3\2\0016\3\0\0'\4\14\0B\3\2\0029\3.\0039\3\16\0035\4/\0=\1\18\4=\2\19\4B\3\2\1K\0\1\0\1\0\0\rtsserver\1\0\0\njdtls\1\0\0\27kotlin_language_server\rsettings\1\0\0\bLua\1\0\0\14telemetry\1\0\1\venable\1\14workspace\flibrary\1\0\0\5\26nvim_get_runtime_file\bapi\16diagnostics\fglobals\1\0\0\1\2\0\0\bvim\fruntime\1\0\0\1\0\1\fversion\vLuaJIT\16sumneko_lua\1\0\0\18rust_analyzer\17capabilities\nflags\1\0\0\nsetup\fpyright\14lspconfig*:/home/ubuntu/lua-language-server/bin\29:/home/ubuntu/.local/bin\tPATH\benv\29make_client_capabilities\rprotocol\blsp\bvim\24update_capabilities\17cmp_nvim_lsp\1\0\1\26debounce_text_changes\3–\1+myCustom.keymap.lsp.lspconfig-onattach\26myCustom.autocmds.lsp\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)

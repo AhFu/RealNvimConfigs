@@ -51,7 +51,7 @@ vim.keymap.set({'n'}, 'r', '<C-r>' ) -- enable redo with r instead of ctrl + r
 --vim.keymap.set({'i'}, '{<cr>', '{<cr>}<esc>o')
 
 --refresh screen
-vim.keymap.set({'i','n','c'}, '<F5>', '<esc><C-l><esc>:noh<cr>')
+vim.keymap.set({'i','n','c'}, '<F5>', '<esc><C-l><esc>:noh<cr><esc>:NvimTreeRefresh<cr>')
 
 
 

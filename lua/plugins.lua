@@ -25,9 +25,21 @@ function(use)
     require'myCustom.plugin.vimFugitive'(use)
     require'myCustom.plugin.hop'(use)
     require'myCustom.plugin.hlslens'(use)
-    require'myCustom.plugin.wordmotion'(use)
-    require'myCustom.plugin.illuminate'(use)
-  --  require'myCustom.plugin.vim-visual-multi'(use)
+        require'myCustom.plugin.wordmotion'(use)
+        require'myCustom.plugin.illuminate'(use)
+        --  require'myCustom.plugin.vim-visual-multi'(use)
+        use 'udalov/kotlin-vim'
+        use'mfussenegger/nvim-jdtls'
+        use'pechorin/any-jump.vim'
+        use'jose-elias-alvarez/null-ls.nvim'
+        require("null-ls").setup({
+            sources = {
+--                require("null-ls").builtins.formatting.stylua,
+  --              require("null-ls").builtins.diagnostics.eslint,
+    --            require("null-ls").builtins.diagnostics.luacheck,
+      --          require("null-ls").builtins.completion.spell,
+            },
+        })
     end
 
 )

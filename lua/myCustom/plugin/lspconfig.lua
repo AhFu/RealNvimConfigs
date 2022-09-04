@@ -44,6 +44,19 @@ return function (use)
                         },
                 },
             }
+            require'lspconfig'.kotlin_language_server.setup{
+                flags = lsp_flags,
+                capabilities=capabilities
+            }
+            require'lspconfig'.jdtls.setup{
+                flags = lsp_flags,
+                capabilities=capabilities
+            }
+            require'lspconfig'.tsserver.setup{
+                flags = lsp_flags,
+                capabilities=capabilities
+            }
+
         end
 
     }
