@@ -9,7 +9,8 @@ return function (use)
             'hrsh7th/cmp-cmdline',
             "hrsh7th/cmp-nvim-lua",
             'hrsh7th/cmp-vsnip',
-            'hrsh7th/vim-vsnip'
+            'hrsh7th/vim-vsnip',
+            'hrsh7th/vim-vsnip-integ'
         },
         config=function ()
             vim.opt.completeopt={
@@ -26,7 +27,13 @@ return function (use)
                     { name = 'path' },
                     { name = 'buffer' },
                 }),
-                mapping=require'myCustom.keymap.lsp.cmp'
+                mapping=require'myCustom.keymap.lsp.cmp',
+                snippet = {
+                    expand = function(args)
+                        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                    end,
+                },
+
             })
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),

@@ -161,7 +161,7 @@ _G.packer_plugins = {
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
-    config = { "\27LJ\2\2¾\3\0\0\b\0\23\00026\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\0029\1\6\0005\2\14\0009\3\a\0009\3\b\0034\4\6\0005\5\t\0>\5\1\0045\5\n\0>\5\2\0045\5\v\0>\5\3\0045\5\f\0>\5\4\0045\5\r\0>\5\5\4B\3\2\2=\3\b\0026\3\4\0'\4\15\0B\3\2\2=\3\16\2B\1\2\0019\1\6\0009\1\17\1'\2\18\0005\3\20\0009\4\16\0009\4\19\0049\4\17\4B\4\1\2=\4\16\0039\4\a\0009\4\b\0044\5\3\0005\6\21\0>\6\1\0054\6\3\0005\a\22\0>\a\1\6B\4\3\2=\4\b\3B\1\3\1K\0\1\0\1\0\1\tname\fcmdline\1\0\1\tname\tpath\1\0\0\vpreset\6:\fcmdline\fmapping\28myCustom.keymap.lsp.cmp\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\1\0\1\tname\rnvim_lua\1\0\1\tname\nvsnip\fsources\vconfig\nsetup\bcmp\frequire\1\4\0\0\tmenu\fmenuone\rnoselect\16completeopt\bopt\bvim\0" },
+    config = { "\27LJ\2\2;\0\1\3\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\2\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimá\3\1\0\b\0\27\00066\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\0029\1\6\0005\2\14\0009\3\a\0009\3\b\0034\4\6\0005\5\t\0>\5\1\0045\5\n\0>\5\2\0045\5\v\0>\5\3\0045\5\f\0>\5\4\0045\5\r\0>\5\5\4B\3\2\2=\3\b\0026\3\4\0'\4\15\0B\3\2\2=\3\16\0025\3\18\0003\4\17\0=\4\19\3=\3\20\2B\1\2\0019\1\6\0009\1\21\1'\2\22\0005\3\24\0009\4\16\0009\4\23\0049\4\21\4B\4\1\2=\4\16\0039\4\a\0009\4\b\0044\5\3\0005\6\25\0>\6\1\0054\6\3\0005\a\26\0>\a\1\6B\4\3\2=\4\b\3B\1\3\1K\0\1\0\1\0\1\tname\fcmdline\1\0\1\tname\tpath\1\0\0\vpreset\6:\fcmdline\fsnippet\vexpand\1\0\0\0\fmapping\28myCustom.keymap.lsp.cmp\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\1\0\1\tname\rnvim_lua\1\0\1\tname\nvsnip\fsources\vconfig\nsetup\bcmp\frequire\1\4\0\0\tmenu\fmenuone\rnoselect\16completeopt\bopt\bvim\0" },
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -285,6 +285,11 @@ _G.packer_plugins = {
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
+    url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
   ["vim-wordmotion"] = {
     loaded = true,
     path = "/home/ubuntu/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
@@ -316,7 +321,7 @@ try_loadstring("\27LJ\2\2Î\3\0\0\4\0\14\0\0176\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1
 time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\2¾\3\0\0\b\0\23\00026\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\0029\1\6\0005\2\14\0009\3\a\0009\3\b\0034\4\6\0005\5\t\0>\5\1\0045\5\n\0>\5\2\0045\5\v\0>\5\3\0045\5\f\0>\5\4\0045\5\r\0>\5\5\4B\3\2\2=\3\b\0026\3\4\0'\4\15\0B\3\2\2=\3\16\2B\1\2\0019\1\6\0009\1\17\1'\2\18\0005\3\20\0009\4\16\0009\4\19\0049\4\17\4B\4\1\2=\4\16\0039\4\a\0009\4\b\0044\5\3\0005\6\21\0>\6\1\0054\6\3\0005\a\22\0>\a\1\6B\4\3\2=\4\b\3B\1\3\1K\0\1\0\1\0\1\tname\fcmdline\1\0\1\tname\tpath\1\0\0\vpreset\6:\fcmdline\fmapping\28myCustom.keymap.lsp.cmp\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\1\0\1\tname\rnvim_lua\1\0\1\tname\nvsnip\fsources\vconfig\nsetup\bcmp\frequire\1\4\0\0\tmenu\fmenuone\rnoselect\16completeopt\bopt\bvim\0", "config", "nvim-cmp")
+try_loadstring("\27LJ\2\2;\0\1\3\0\4\0\0066\1\0\0009\1\1\0019\1\2\0019\2\3\0B\1\2\1K\0\1\0\tbody\20vsnip#anonymous\afn\bvimá\3\1\0\b\0\27\00066\0\0\0009\0\1\0005\1\3\0=\1\2\0006\0\4\0'\1\5\0B\0\2\0029\1\6\0005\2\14\0009\3\a\0009\3\b\0034\4\6\0005\5\t\0>\5\1\0045\5\n\0>\5\2\0045\5\v\0>\5\3\0045\5\f\0>\5\4\0045\5\r\0>\5\5\4B\3\2\2=\3\b\0026\3\4\0'\4\15\0B\3\2\2=\3\16\0025\3\18\0003\4\17\0=\4\19\3=\3\20\2B\1\2\0019\1\6\0009\1\21\1'\2\22\0005\3\24\0009\4\16\0009\4\23\0049\4\21\4B\4\1\2=\4\16\0039\4\a\0009\4\b\0044\5\3\0005\6\25\0>\6\1\0054\6\3\0005\a\26\0>\a\1\6B\4\3\2=\4\b\3B\1\3\1K\0\1\0\1\0\1\tname\fcmdline\1\0\1\tname\tpath\1\0\0\vpreset\6:\fcmdline\fsnippet\vexpand\1\0\0\0\fmapping\28myCustom.keymap.lsp.cmp\1\0\0\1\0\1\tname\vbuffer\1\0\1\tname\tpath\1\0\1\tname\rnvim_lsp\1\0\1\tname\rnvim_lua\1\0\1\tname\nvsnip\fsources\vconfig\nsetup\bcmp\frequire\1\4\0\0\tmenu\fmenuone\rnoselect\16completeopt\bopt\bvim\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
 -- Config for: focus.nvim
 time([[Config for focus.nvim]], true)
