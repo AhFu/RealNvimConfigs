@@ -52,19 +52,22 @@ return function (use)
                 flags = lsp_flags,
                 capabilities=capabilities
             }
-            require'lspconfig'.tsserver.setup{
-                flags = lsp_flags,
-                capabilities=capabilities
-            }
+--            require'lspconfig'.tsserver.setup{
+--                flags = lsp_flags,
+--                capabilities=capabilities
+--            }
             require'lspconfig'.emmet_ls.setup{
                 flags = lsp_flags,
                 capabilities=capabilities
             }
---            require'lspconfig'.volar.setup{
-----                filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
---                flags = lsp_flags,
---                capabilities=capabilities
---            }
+            require'lspconfig'.volar.setup{
+                filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+                init_options = {
+                    typescript = {
+                        serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+                    }
+                }
+            }
         end
 
     }

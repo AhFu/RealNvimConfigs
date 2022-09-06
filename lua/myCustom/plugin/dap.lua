@@ -35,7 +35,7 @@ return function (use)
                         sourceMaps = true,
                         protocol = 'inspector',
                         console = 'integratedTerminal',
-                        outFiles= {'${workspaceFolder}/*.js"'}
+                        outFiles= {'/home/ubuntu/ts/*.js'}
                     },
                     {
                         name = 'Attach to process',
@@ -45,6 +45,7 @@ return function (use)
                     },
                 }
             end
+
         end
     }
 end
