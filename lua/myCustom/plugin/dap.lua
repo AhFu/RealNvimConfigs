@@ -1,11 +1,9 @@
-
-
 return function (use)
     use{
         'mfussenegger/nvim-dap',
         requires={
-            'mfussenegger/nvim-dap-python',
-            'rcarriga/nvim-dap-ui'
+            {'mfussenegger/nvim-dap-python'},
+            {'rcarriga/nvim-dap-ui'}
         },
         config=function ()
             require'dap-python'.setup('~/.virtualenvs/debugpy/bin/python')
@@ -26,27 +24,27 @@ return function (use)
                 command = 'node',
                 args = {'/home/ubuntu/vscode-node-debug2/out/src/nodeDebug.js'},
             }
-            dap.configurations.typescript = {
-                {
-                    name = 'Launch',
-                    type = 'node2',
-                    request = 'launch',
-                --    program = '/home/ubuntu/ts/index.ts',
-                    program = '${file}',
-                    cwd = vim.fn.getcwd(),
-                    sourceMaps = true,
-                    protocol = 'inspector',
-                    console = 'integratedTerminal',
-                    outFiles={'/home/ubuntu/ts/*.js'}
-                },
-                {
-                    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-                    name = 'Attach to process',
-                    type = 'node2',
-                    request = 'attach',
-                    processId = require'dap.utils'.pick_process,
-                },
-            }
+            for _, language in ipairs({ "typescript", "javascript" }) do
+                dap.configurations[language] = {
+                    {
+                        name = 'Launch',
+                        type = 'node2',
+                        request = 'launch',
+                        program = '${file}',
+                        cwd = vim.fn.getcwd(),
+                        sourceMaps = true,
+                        protocol = 'inspector',
+                        console = 'integratedTerminal',
+                        outFiles= {'${workspaceFolder}/*.js"'}
+                    },
+                    {
+                        name = 'Attach to process',
+                        type = 'node2',
+                        request = 'attach',
+                        processId = require'dap.utils'.pick_process,
+                    },
+                }
+            end
         end
     }
 end

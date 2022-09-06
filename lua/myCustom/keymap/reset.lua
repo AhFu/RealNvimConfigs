@@ -31,7 +31,8 @@ vim.keymap.set({'i','n'}, '<C-k>', '<up>' )
 vim.keymap.set({'i','n'}, '<C-l>', '<right>' )
 vim.keymap.set({'i','n'}, '<m-h>', '<esc>g;' ) -- previous cursor position 
 vim.keymap.set({'i','n'}, '<m-l>', '<esc>g,' ) -- next cursoir position
-vim.keymap.set({'i','n'}, '<c-[>', '<nop>' ) -- next cursoir position
+vim.keymap.set({'i','n'}, '<c-a>', '<home>' )  
+vim.keymap.set({'i','n'}, '<c-s>', '<end>' ) 
 -- copy, paste,redo and delete 
 vim.keymap.set({'i'}, '<C-u>', '<esc>ui') --undo in edit mode
 vim.keymap.set({'i'}, '<C-p>', '<esc>pi' ) -- paste in edit mode
