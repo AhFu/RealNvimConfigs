@@ -14,6 +14,7 @@ opt.scrolloff = 5
 opt.shiftwidth = 4
 opt.smartcase = true
 opt.smartindent = true
+opt.ignorecase=true
 opt.softtabstop = 4
 opt.swapfile = false
 opt.tabstop = 4

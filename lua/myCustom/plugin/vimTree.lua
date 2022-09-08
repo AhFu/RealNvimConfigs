@@ -11,24 +11,30 @@ return function(use)
 
             require"myCustom.keymap.nvimTree"
             require("nvim-tree").setup(
-            {
-                open_on_setup = true,
-                view={
-                    side='right'
-                }
-            })
+                {
+                    open_on_setup = true,
+                    view={
+                        side='right'
+                    },
+                    actions={    
+                        expand_all={
+                            exclude={'.git','node_modules','build'},
+                            max_folder_discovery = 300,
+                        }
+                    }
+                })
             --require("nvim-tree").setup()
             -- for barbar tab offset
             local nvim_tree_events = require('nvim-tree.events')
             local bufferline_state = require('bufferline.state')
 
---            nvim_tree_events.on_tree_open(function ()
---                bufferline_state.set_offset(31, "File Tree")
---            end)
---
---            nvim_tree_events.on_tree_close(function ()
---                bufferline_state.set_offset(0)
---            end)
+            --            nvim_tree_events.on_tree_open(function ()
+            --                bufferline_state.set_offset(31, "File Tree")
+            --            end)
+            --
+            --            nvim_tree_events.on_tree_close(function ()
+            --                bufferline_state.set_offset(0)
+            --            end)
         end
     }
 

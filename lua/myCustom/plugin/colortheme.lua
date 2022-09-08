@@ -14,7 +14,7 @@ return function(use)
             vim.cmd([[:highlight MatchParen  guifg=#56adb7 guibg=#51617d ]])
             --vim.cmd([[:highlight Comment   guifg=#544923]])
             --vim.cmd([[:highlight Folded   guifg=#]])
-            vim.cmd([[:highlight Comment   guifg=#733417]])
+            vim.cmd([[:highlight Comment   guifg=#7d3b1d]])
             vim.cmd([[:highlight Folded   guifg=#733417]])
             vim.cmd([[:highlight LineNr   guifg=#51617d ]]) 
             vim.cmd([[:highlight TSVariable   guifg=#9aa7bd ]]) -- gray5 for varaibles

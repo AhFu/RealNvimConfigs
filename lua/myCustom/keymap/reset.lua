@@ -66,3 +66,5 @@ vim.keymap.set({'i','n','v','c','t';}, '<leader>q', '<esc>:BufferClose<tab>' )--
 --disalbe recording
 vim.keymap.set({'n'}, 'q', '<nop>' )
 
+--exit terminal
+vim.keymap.set({'t'},'<esc>','<C-\\><C-n>')

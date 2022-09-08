@@ -129,6 +129,7 @@ return function()
             RemoveVirtualText(ns_id,mark_id)
             if key=='c' then
             vim.cmd([[:close]])
+            char_key=120
             else --key must be "C"
             vim.cmd([[:qall]])
             end
