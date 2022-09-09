@@ -9,7 +9,13 @@ return function (use)
                 -- This is the default in Nvim 0.7+
                 debounce_text_changes = 150,
             }
-            local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            -- for nvim-ufo
+            capabilities.textDocument.foldingRange = {
+                dynamicRegistration = false,
+                lineFoldingOnly = true
+            }
+            capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
             vim.env.PATH=vim.env.PATH..":/home/ubuntu/.local/bin"
             vim.env.PATH=vim.env.PATH..":/home/ubuntu/lua-language-server/bin"
             require'lspconfig'.pyright.setup{
@@ -23,26 +29,27 @@ return function (use)
             }
             require'lspconfig'.sumneko_lua.setup {
                 settings = {
-                    Lua = 
-                        {
-                            runtime = {
-                                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                                version = 'LuaJIT',
-                            },
-                            diagnostics = {
-                                -- Get the language server to recognize the `vim` global
-                                globals = {'vim'},
-                            },
-                            workspace = {
-                                -- Make the server aware of Neovim runtime files
-                                library = vim.api.nvim_get_runtime_file("", true),
-                            },
-                            -- Do not send telemetry data containing a randomized but unique identifier
-                            telemetry = {
-                                enable = false,
-                            },
+                    Lua = {
+                        runtime = {
+                            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                            version = 'LuaJIT',
                         },
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = {'vim'},
+                        },
+                        workspace = {
+                            -- Make the server aware of Neovim runtime files
+                            library = vim.api.nvim_get_runtime_file("", true),
+                        },
+                        -- Do not send telemetry data containing a randomized but unique identifier
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
                 },
+                flags = lsp_flags,
+                capabilities=capabilities
             }
             require'lspconfig'.kotlin_language_server.setup{
                 flags = lsp_flags,
@@ -52,10 +59,10 @@ return function (use)
                 flags = lsp_flags,
                 capabilities=capabilities
             }
---            require'lspconfig'.tsserver.setup{
---                flags = lsp_flags,
---                capabilities=capabilities
---            }
+            --            require'lspconfig'.tsserver.setup{
+            --                flags = lsp_flags,
+            --                capabilities=capabilities
+            --            }
             require'lspconfig'.emmet_ls.setup{
                 flags = lsp_flags,
                 capabilities=capabilities
@@ -66,7 +73,9 @@ return function (use)
                     typescript = {
                         serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
                     }
-                }
+                },
+                flags = lsp_flags,
+                capabilities=capabilities
             }
         end
 

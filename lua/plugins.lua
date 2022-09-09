@@ -32,6 +32,9 @@ return require('packer').startup(
         use'mfussenegger/nvim-jdtls'
         use'pechorin/any-jump.vim'
         use'jose-elias-alvarez/null-ls.nvim'
+        
+        require'myCustom.plugin.nvim-ufo'(use)
+        --  require'myCustom.plugin.vim-visual-multi'(use)
         require("null-ls").setup({
             sources = {
 --              require'null-ls'.builtins.formatting.stylelint,
