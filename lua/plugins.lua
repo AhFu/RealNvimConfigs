@@ -11,7 +11,6 @@ return require('packer').startup(
         require'myCustom.plugin.treesit'(use)
         require'myCustom.plugin.colortheme'(use)
         require'myCustom.plugin.telescope'(use)
-        --  require'myCustom.plugin.cursorline'(use)
         require'myCustom.plugin.indentblinkline'(use)
         require'myCustom.plugin.lspsaga'(use)
         require'myCustom.plugin.cmp'(use)
@@ -27,14 +26,11 @@ return require('packer').startup(
         require'myCustom.plugin.hlslens'(use)
         require'myCustom.plugin.wordmotion'(use)
         require'myCustom.plugin.illuminate'(use)
-        --  require'myCustom.plugin.vim-visual-multi'(use)
         use 'udalov/kotlin-vim'
         use'mfussenegger/nvim-jdtls'
         use'pechorin/any-jump.vim'
         use'jose-elias-alvarez/null-ls.nvim'
-        
         require'myCustom.plugin.nvim-ufo'(use)
-        --  require'myCustom.plugin.vim-visual-multi'(use)
         require("null-ls").setup({
             sources = {
 --              require'null-ls'.builtins.formatting.stylelint,
