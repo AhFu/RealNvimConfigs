@@ -18,6 +18,7 @@ return function(use)
             vim.cmd([[:highlight Folded   guifg=#733417]])
             vim.cmd([[:highlight LineNr   guifg=#51617d ]]) 
             vim.cmd([[:highlight TSVariable   guifg=#9aa7bd ]]) -- gray5 for varaibles
+vim.cmd([[:highlight foldColumn guifg='#323c4d']])
         end
     }
 
