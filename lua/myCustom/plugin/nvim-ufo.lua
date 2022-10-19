@@ -2,6 +2,7 @@ return function (use)
     use{
         'kevinhwang91/nvim-ufo',
         requires = 'kevinhwang91/promise-async',
+        tag='v1.1.0',
         config=function()
             vim.o.foldcolumn = '1'
             vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -56,9 +57,9 @@ return function (use)
             end
             require('ufo').setup({
                 fold_virt_text_handler = handler,
-                provider_selector = function(bufnr, filetype, buftype)
-                    return  customizeSelector
-                end
+--                provider_selector = function(bufnr, filetype, buftype)
+  --                  return  customizeSelector
+    --            end
             })
         end
 

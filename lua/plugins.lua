@@ -24,7 +24,7 @@ return require('packer').startup(
         require'myCustom.plugin.vimFugitive'(use)
         require'myCustom.plugin.hop'(use)
         require'myCustom.plugin.hlslens'(use)
-        require'myCustom.plugin.wordmotion'(use)
+     --   require'myCustom.plugin.wordmotion'(use)
         require'myCustom.plugin.illuminate'(use)
         use 'udalov/kotlin-vim'
         use'mfussenegger/nvim-jdtls'
@@ -41,7 +41,8 @@ return require('packer').startup(
                 --          require("null-ls").builtins.completion.spell,
             },
         })
-
+        require'myCustom.plugin.clap'(use)
+        use 'liuchengxu/vista.vim'
     end
 
 )

@@ -23,7 +23,5 @@ return function()
         print (value)
         action=vim.api.nvim_replace_termcodes("<esc>ysa"..value,true,false,true)
     end
-
-
     vim.api.nvim_feedkeys(action,"m",false)
 end

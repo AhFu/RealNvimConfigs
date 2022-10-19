@@ -15,7 +15,7 @@ return function (use)
                 dynamicRegistration = false,
                 lineFoldingOnly = true
             }
-            capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
             vim.env.PATH=vim.env.PATH..":/home/ubuntu/.local/bin"
             vim.env.PATH=vim.env.PATH..":/home/ubuntu/lua-language-server/bin"
             require'lspconfig'.pyright.setup{
@@ -68,7 +68,7 @@ return function (use)
                 capabilities=capabilities
             }
             require'lspconfig'.volar.setup{
-                filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+                filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json','sass'},
                 init_options = {
                     typescript = {
                         serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
@@ -77,6 +77,7 @@ return function (use)
                 flags = lsp_flags,
                 capabilities=capabilities
             }
+            require'lspconfig'.bashls.setup{}
         end
 
     }

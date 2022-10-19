@@ -58,7 +58,7 @@ vim.keymap.set({'i','n','c'}, '<F5>', '<esc><C-l><esc>:noh<cr><esc>:NvimTreeRefr
 
 
 -- save, quit and quit with save
-vim.keymap.set({'i','n','v','c','t'}, '<leader>w', '<esc>:w<cr>' )
+--vim.keymap.set({'i','n','v','c','t'}, '<leader>w', '<esc>:w<cr>' )
 vim.keymap.set({'i','n','v','c','t';}, '<leader>q', '<esc>:BufferClose<tab>' )-- require opt.wildcharm=9 to work
 
 

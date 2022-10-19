@@ -121,7 +121,8 @@ return function()
         end
         if key=='B' then
             RemoveVirtualText(ns_id,mark_id)
-            vim.cmd([[:call feedkeys("\<esc>:BufferClose\<tab>")]])
+            vim.cmd([[:call feedkeys("\<esc>:BufferClose")]])
+          --  vim.cmd([[:call feedkeys("\<esc>:BufferClose\<tab>")]])
             char_key=120  -- must exit the program or key-input buffer will be consumed to getchar() function
             RefreshScreen()
         end
