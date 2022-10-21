@@ -28,5 +28,5 @@ vim.o.relativenumber=true
 vim.o.number=true
 opt.wildcharm=9
 opt.foldenable=false
-
+opt.matchpairs:append("<:>")
 

@@ -33,8 +33,8 @@ return require('packer').startup(
         require'myCustom.plugin.nvim-ufo'(use)
         require("null-ls").setup({
             sources = {
---              require'null-ls'.builtins.formatting.stylelint,
---              require'null-ls'.builtins.diagnostics.stylelint
+                --              require'null-ls'.builtins.formatting.stylelint,
+                --              require'null-ls'.builtins.diagnostics.stylelint
                 --                require("null-ls").builtins.formatting.stylua,
                 --              require("null-ls").builtins.diagnostics.eslint,
                 --            require("null-ls").builtins.diagnostics.luacheck,
@@ -43,6 +43,8 @@ return require('packer').startup(
         })
         require'myCustom.plugin.clap'(use)
         use 'liuchengxu/vista.vim'
+        use "b0o/incline.nvim"
+        require('incline').setup()
     end
 
 )
