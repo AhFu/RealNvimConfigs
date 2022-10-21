@@ -1,7 +1,7 @@
 return function (use)
     use {
         'nvim-treesitter/nvim-treesitter',
-        requires='nvim-treesitter/nvim-treesitter-context',
+        requires={'nvim-treesitter/nvim-treesitter-context', "p00f/nvim-ts-rainbow"},
         run = ':TSUpdate',
         config=function ()
             require'nvim-treesitter.configs'.setup {
@@ -42,6 +42,11 @@ return function (use)
                 },
                 indent = {
                     enable = true
+                },
+                rainbow = {
+                    enable = true,
+                    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+                    max_file_lines = nil, -- Do not enable for files with more than n lines, int
                 }
             }
         end

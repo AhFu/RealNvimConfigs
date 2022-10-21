@@ -19,6 +19,7 @@ return function(use)
             vim.cmd([[:highlight LineNr   guifg=#51617d ]]) 
             vim.cmd([[:highlight TSVariable   guifg=#9aa7bd ]]) -- gray5 for varaibles
             vim.cmd([[:highlight foldColumn guifg='#323c4d']])
+            vim.cmd([[:highlight MatchParen guibg=NONE guifg=NONE gui=underline cterm=underline]])
         end
     }
 
