@@ -1,7 +1,12 @@
 return function (use)
     use {
         'nvim-treesitter/nvim-treesitter',
-        requires={'nvim-treesitter/nvim-treesitter-context', "p00f/nvim-ts-rainbow"},
+        requires={
+            'nvim-treesitter/nvim-treesitter-context',
+            "p00f/nvim-ts-rainbow",
+            "windwp/nvim-ts-autotag",
+            "drybalka/tree-climber.nvim"
+        },
         run = ':TSUpdate',
         config=function ()
             require'nvim-treesitter.configs'.setup {
@@ -47,7 +52,9 @@ return function (use)
                     enable = true,
                     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
                     max_file_lines = nil, -- Do not enable for files with more than n lines, int
-                }
+                },
+                autotag={enable=true},
+
             }
         end
     }

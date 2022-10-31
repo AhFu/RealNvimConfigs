@@ -24,7 +24,7 @@ return require('packer').startup(
         require'myCustom.plugin.vimFugitive'(use)
         require'myCustom.plugin.hop'(use)
         require'myCustom.plugin.hlslens'(use)
-     --   require'myCustom.plugin.wordmotion'(use)
+        --   require'myCustom.plugin.wordmotion'(use)
         require'myCustom.plugin.illuminate'(use)
         use 'udalov/kotlin-vim'
         use'mfussenegger/nvim-jdtls'
@@ -45,8 +45,9 @@ return require('packer').startup(
         use 'liuchengxu/vista.vim'
         use "b0o/incline.nvim"
         require('incline').setup()
+        require'myCustom.plugin.nerdcommenter'(use)
+        require'myCustom.plugin.persistence'(use)
     end
-
 )
 
 
