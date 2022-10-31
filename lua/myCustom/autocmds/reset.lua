@@ -12,10 +12,10 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd(
     {"BufEnter"},
     {
-        pattern="/*node_modules*",
+        pattern={"/*node_modules*"},
         callback=function()
             vim.cmd([[:view]])
-            vim.cmd([[:g/^\s*\/\*/foldclose]])
+--            vim.cmd([[:g/^\s*\/\*/foldclose]])
         end
     }
 )    
