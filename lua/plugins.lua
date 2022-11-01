@@ -43,8 +43,7 @@ return require('packer').startup(
         })
         require'myCustom.plugin.clap'(use)
         use 'liuchengxu/vista.vim'
-        use "b0o/incline.nvim"
-        require('incline').setup()
+        require'myCustom.plugin.incline'(use)
         require'myCustom.plugin.nerdcommenter'(use)
         require'myCustom.plugin.persistence'(use)
     end

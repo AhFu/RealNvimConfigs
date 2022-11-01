@@ -80,11 +80,14 @@ return function()
         if char_key==8 or char_key==10 or char_key==11 or char_key==12 then
             ResizeWindow(char_key)
             RefreshScreen()
+            require'incline.manager'.update{refresh=true}
+            vim.cmd([[:sleep 10ms]])
+            RefreshScreen()
         end
         if key=='h' or key=='j' or key=='k' or key=='l' then
             RemoveVirtualText(ns_id,mark_id)
             ChangeFocus(key)
-            vim.cmd([[:sleep 100ms]])
+        --    vim.cmd([[:sleep 100ms]])
             ns_id,mark_id=   ShowVirtualText()
             RefreshScreen()
             vim.cmd(":echo @%")
