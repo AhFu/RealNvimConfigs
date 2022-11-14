@@ -4,8 +4,8 @@ return function(use)
         config=function()
             local incline_config={
                 debounce_threshold = {
-                    falling = 0,
-                    rising =0
+                    falling = 5,
+                    rising =5
                 },
                 window={
                     placement={

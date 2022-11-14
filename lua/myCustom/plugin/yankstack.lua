@@ -1,8 +1,8 @@
 return function (use)
     use{
         'maxbrunsfeld/vim-yankstack',
-        config=function ()
-            vim.g.yankstack_map_keys='custom_bind_in_yankstack.lua'
+        setup=function ()
+            vim.g.yankstack_map_keys=false -- no default key map.
             require('myCustom.keymap.yankstack')
         end,
         requires='tpope/vim-repeat'
