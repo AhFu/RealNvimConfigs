@@ -5,6 +5,7 @@ use({
   module = "persistence",
   config = function()
     require("persistence").setup()
+    require"myCustom.keymap.persistence"
   end,
 })
 
