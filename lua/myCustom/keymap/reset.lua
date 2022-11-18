@@ -52,14 +52,14 @@ vim.keymap.set({'n'}, 'r', '<C-r>' ) -- enable redo with r instead of ctrl + r
 --vim.keymap.set({'i'}, '{<cr>', '{<cr>}<esc>o')
 
 --refresh screen
-vim.keymap.set({'i','n','c'}, '<F5>', '<esc><C-l><esc>:noh<cr><esc>:NvimTreeRefresh<cr><esc>:TSBufToggle rainbow<cr>')
-
+vim.keymap.set({'i','n','c'}, '<F5>', '<esc><C-l><esc>:noh<cr><esc>:NvimTreeRefresh<cr>')
+vim.keymap.set({'i','n','c'}, '<s-F5>', '<esc><C-l><esc>:noh<cr><esc>:NvimTreeRefresh<cr><esc>:TSBufToggle rainbow<cr><esc>:LspRestart<cr>')
 
 
 
 -- save, quit and quit with save
 --vim.keymap.set({'i','n','v','c','t'}, '<leader>w', '<esc>:w<cr>' )
-vim.keymap.set({'i','n','v','c','t';}, '<leader>q', '<esc>:BufferClose<tab>' )-- require opt.wildcharm=9 to work
+--vim.keymap.set({'i','n','v','c','t';}, '<leader>q', '<esc>:BufferClose<tab>' )-- require opt.wildcharm=9 to work
 
 
 

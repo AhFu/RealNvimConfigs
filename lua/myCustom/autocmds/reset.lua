@@ -14,7 +14,8 @@ vim.api.nvim_create_autocmd(
     {
         pattern={"/*node_modules*"},
         callback=function()
-            vim.cmd([[:view]])
+            -- causing some problems in LspSaga
+--            vim.cmd([[:view]])
 --            vim.cmd([[:g/^\s*\/\*/foldclose]])
         end
     }

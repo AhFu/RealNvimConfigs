@@ -1,11 +1,9 @@
 return function(use)
-  use{
+    use{
         'liuchengxu/vim-clap',
         config=function()
             require'myCustom.keymap.clap'
-      --      vim.cmd[[:Clap install-binary]]
+            vim.g.clap_layout={ relative='editor' }
         end
-
-
-    }
+}
 end

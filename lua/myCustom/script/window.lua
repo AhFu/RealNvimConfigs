@@ -112,30 +112,30 @@ return function()
       --      vim.cmd([[:FocusMaxOrEqual]])
       --      RefreshScreen()
       --  end
+        --if key=='b' then
+            --local result=""
+            --while result=="" do
+            --RemoveVirtualText(ns_id,mark_id)
+                --result= vim.api.nvim_exec([[:BufferPick]],true)
+                --ns_id,mark_id=   ShowVirtualText()
+                --RefreshScreen()
+            --end
+            --char_key=120
+        --end
         if key=='b' then
-            local result=""
-            while result=="" do 
-            RemoveVirtualText(ns_id,mark_id)
-                result= vim.api.nvim_exec([[:BufferPick]],true)
-                ns_id,mark_id=   ShowVirtualText()
-                RefreshScreen()
-            end
-            char_key=120
-        end
-        if key=='B' then
             RemoveVirtualText(ns_id,mark_id)
             vim.cmd([[:call feedkeys("\<esc>:BufferClose")]])
           --  vim.cmd([[:call feedkeys("\<esc>:BufferClose\<tab>")]])
             char_key=120  -- must exit the program or key-input buffer will be consumed to getchar() function
             RefreshScreen()
         end
-        if key=='c' or key =='C' then
+        if key=='c' or key =='q' then
             RemoveVirtualText(ns_id,mark_id)
             if key=='c' then
             vim.cmd([[:close]])
             char_key=120
             else --key must be "C"
-            vim.cmd([[:qall]])
+            vim.cmd([[:qall!]])
             end
             RefreshScreen()
         end
