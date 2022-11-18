@@ -10,4 +10,9 @@ vim.keymap.set({'n','i','c'}, '<s-a-j>',"<cmd>:lefta split %  <cr>")
 vim.keymap.set({'n','i','c'}, '<s-a-k>',"<cmd>:belowright split % <cr>")
 vim.keymap.set({'n','i','c'}, '<s-a-l>',"<cmd>:belowright vsplit % <cr>")
 ----------------------------------------------
+vim.keymap.set({'n','i','c'}, '<A-Left>',"<cmd>:vertical resize -3<cr>" )
+vim.keymap.set({'n','i','c'}, '<A-Right>',"<cmd>:vertical resize +3<cr>" )
+vim.keymap.set({'n','i','c'}, '<A-Up>',"<cmd>:resize +3<cr>" )
+vim.keymap.set({'n','i','c'}, '<A-Down>',"<cmd>:resize -3<cr>" )
+----------------------------------
 vim.keymap.set({'n','i','c'}, '<leader>w',function() require'myCustom.script.window'() end)

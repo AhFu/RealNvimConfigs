@@ -16,7 +16,7 @@ return require('packer').startup(
         require'myCustom.plugin.cmp'(use)
         require'myCustom.plugin.surround'(use)
         require'myCustom.plugin.trouble'(use)
-        require'myCustom.plugin.focus'(use)
+       -- require'myCustom.plugin.focus'(use)
         require'myCustom.plugin.yankstack'(use)
         require'myCustom.plugin.dap'(use)
         require'myCustom.plugin.undoTree'(use)
@@ -45,7 +45,8 @@ return require('packer').startup(
         use 'liuchengxu/vista.vim'
         require'myCustom.plugin.incline'(use)
         require'myCustom.plugin.nerdcommenter'(use)
-        require'myCustom.plugin.persistence'(use)
+    --    require'myCustom.plugin.persistence'(use)
+        use'mhinz/vim-startify'
     end
 )
 
