@@ -29,4 +29,5 @@ vim.o.number=true
 opt.wildcharm=9
 opt.foldenable=false
 opt.matchpairs:append("<:>")
-
+opt.clipboard="unnamedplus" -- allow accessing Linux system clipboard
+vim.g.any_jump_disable_default_keybindings=1
