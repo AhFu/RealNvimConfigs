@@ -1,0 +1,19 @@
+return function()
+    local buf_basepath=vim.fn.expand("%:p:h")
+    local restore_win_id= vim.api.nvim_get_current_win()
+    local s={}
+   s.s1='<esc><C-l><esc>:noh<cr>'
+    --Remove this statement from s2 on purpose  ----> <esc>:LspRestart<cr>\
+    s.s2='<esc>:TSBufToggle rainbow<cr>\
+    <esc>:TSBufToggle rainbow<cr>'
+    s.s3='<esc>:NvimTreeClose<cr>\
+    <esc>:NvimTreeFindFileToggle '..buf_basepath.."<cr>"
+    for key,value in pairs(s) do
+        local action=vim.api.nvim_replace_termcodes(value,true,false,true)
+        vim.fn.execute(":normal "..action)
+        vim.cmd([[:sleep 60m]])
+    end
+    vim.api.nvim_set_current_win(restore_win_id)
+end
+
+

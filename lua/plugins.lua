@@ -47,6 +47,7 @@ return require('packer').startup(
         require'myCustom.plugin.nerdcommenter'(use)
     --    require'myCustom.plugin.persistence'(use)
         use'mhinz/vim-startify'
+        use 'eandrju/cellular-autmaton.nvim' 
     end
 )
 

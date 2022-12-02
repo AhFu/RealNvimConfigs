@@ -1,5 +1,6 @@
 vim.g.mapleader = ';;'
 -- Toggling Normal, Command, Visual mode
+
 vim.keymap.set({'n','i','v','c','t'}, '<C-;>', '<nop>' )
 vim.keymap.set({'n','i','v','c','t'}, '<C-c>', '<nop>' )
 vim.keymap.set({'n','i','v','c','t'}, '<C-v>', '<nop>' )
@@ -43,28 +44,11 @@ vim.keymap.set({'i'}, '<C-e>', '<bs>' ) -- backspace in edit mode
 vim.keymap.set({'n'}, 'r', '<nop>' ) -- disable "repalce" operation in favour of  redo
 vim.keymap.set({'n'}, 'r', '<C-r>' ) -- enable redo with r instead of ctrl + r
 
---code helper Autoclosing
---vim.keymap.set({'i'}, '"', '""<left>')
---vim.keymap.set({'i'}, '\'', '\'\'<left>')
---vim.keymap.set({'i'}, '(', '()<left>')
---vim.keymap.set({'i'}, '[', '[]<left>')
---vim.keymap.set({'i'}, '{', '{<cr>}<esc><S-o>')
---vim.keymap.set({'i'}, '{<cr>', '{<cr>}<esc>o')
-
 --refresh screen
-vim.keymap.set({'i','n','c'}, '<leader>r', '<esc><C-l><esc>:noh<cr><esc>:NvimTreeRefresh<cr>'.."<esc>:NvimTreeClose<cr><esc>:NvimTreeFindFileToggle "..vim.fn.expand("%:p:h").."<cr>:<esc><cr>")
-vim.keymap.set({'i','n','c'}, '<c-F5>', '<esc><C-l><esc>:noh<cr><esc>:NvimTreeRefresh<cr><esc>:TSBufToggle rainbow<cr><esc>:LspRestart<cr>')
-
-
-
--- save, quit and quit with save
---vim.keymap.set({'i','n','v','c','t'}, '<leader>w', '<esc>:w<cr>' )
---vim.keymap.set({'i','n','v','c','t';}, '<leader>q', '<esc>:BufferClose<tab>' )-- require opt.wildcharm=9 to work
-
-
-
+vim.keymap.set({'i','n','c'},'<leader>r',function()require'myCustom.script.refresh'() end )
 --disalbe recording
 vim.keymap.set({'n'}, 'q', '<nop>' )
 
 --exit terminal
 vim.keymap.set({'t'},'<esc>','<C-\\><C-n>')
+
