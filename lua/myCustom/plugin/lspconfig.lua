@@ -2,11 +2,12 @@ return function (use)
     use{
         'neovim/nvim-lspconfig',
         config=function ()
-            --            require"myCustom.keymap.lsp.lspconfig-common"
+            --require"myCustom.keymap.lsp.lspconfig-common"
             require'myCustom.autocmds.lsp'
 
             local on_attach =function(client,bufnr)
                 require"myCustom.keymap.lsp.lspconfig-onattach"
+                -- Disable virtual text lsp messages.
                 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
                     vim.lsp.diagnostic.on_publish_diagnostics, {
                         virtual_text = false,
@@ -14,6 +15,7 @@ return function (use)
                         update_in_insert = false,
                     }
                 )
+                --Display a popup for lsp message when cursor at the token.
                 vim.api.nvim_create_autocmd("CursorHold", {
                     buffer = bufnr,
                     callback = function()
@@ -34,25 +36,18 @@ return function (use)
                 -- This is the default in Nvim 0.7+
                 debounce_text_changes = 150,
             }
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+            --for cmp 
+            local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities(default_capabilities)
+            -- merge default and cmp capabilities together.
+            local merged_capabilities=vim.tbl_deep_extend('force',default_capabilities,cmp_capabilities)
             -- for nvim-ufo
-            capabilities.textDocument.foldingRange = {
+            merged_capabilities.textDocument.foldingRange = {
                 dynamicRegistration = false,
                 lineFoldingOnly = true
             }
-            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
             vim.env.PATH=vim.env.PATH..":/home/ubuntu/.local/bin"
             vim.env.PATH=vim.env.PATH..":/home/ubuntu/lua-language-server/bin"
-            require'lspconfig'.pyright.setup{
-                on_attach = on_attach,
-                flags = lsp_flags,
-                capabilities=capabilities
-            }
-            require'lspconfig'.rust_analyzer.setup{
-                on_attach = on_attach,
-                flags = lsp_flags,
-                capabilities=capabilities
-            }
             require'lspconfig'.sumneko_lua.setup {
                 on_attach = on_attach,
                 settings = {
@@ -76,41 +71,28 @@ return function (use)
                     },
                 },
                 flags = lsp_flags,
-                capabilities=capabilities
-            }
-            require'lspconfig'.kotlin_language_server.setup{
-                on_attach = on_attach,
-                flags = lsp_flags,
-                capabilities=capabilities
-            }
-            require'lspconfig'.jdtls.setup{
-                on_attach = on_attach,
-                flags = lsp_flags,
-                capabilities=capabilities
-            }
-            --            require'lspconfig'.tsserver.setup{
-            --                flags = lsp_flags,
-            --                capabilities=capabilities
-            --            }
-            require'lspconfig'.emmet_ls.setup{
-                on_attach = on_attach,
-                flags = lsp_flags,
-                capabilities=capabilities
+                capabilities=merged_capabilities
             }
             require'lspconfig'.volar.setup{
-                on_attach = on_attach,
                 filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json','sass'},
                 init_options = {
                     typescript = {
                         serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
                     }
                 },
+                on_attach = on_attach,
                 flags = lsp_flags,
-                capabilities=capabilities
+                capabilities=merged_capabilities
             }
-            require'lspconfig'.bashls.setup{}
+            local common_langs={"kotlin_language_server","jdtls","emmet_ls","bashls","jsonls","pyright"}
+            for _,lang in pairs(common_langs) do
+                require'lspconfig'[lang].setup{
+                    on_attach = on_attach,
+                    flags = lsp_flags,
+                    capabilities=merged_capabilities
+                }
+            end
         end
-
     }
 end
 

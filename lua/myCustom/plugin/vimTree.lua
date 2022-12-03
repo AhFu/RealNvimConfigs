@@ -16,11 +16,15 @@ return function(use)
                     view={
                         side='right'
                     },
-                    actions={    
+                    actions={
                         expand_all={
                             exclude={'.git','node_modules','build'},
                             max_folder_discovery = 300,
                         }
+                    },
+                    trash={
+                        cmd="trash",
+                        require_confirm=true,
                     }
                 })
             --require("nvim-tree").setup()
