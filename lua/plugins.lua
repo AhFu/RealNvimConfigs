@@ -45,9 +45,13 @@ return require('packer').startup(
         use 'liuchengxu/vista.vim'
         require'myCustom.plugin.incline'(use)
         require'myCustom.plugin.nerdcommenter'(use)
-    --    require'myCustom.plugin.persistence'(use)
+        --    require'myCustom.plugin.persistence'(use)
         use'mhinz/vim-startify'
-        use 'eandrju/cellular-autmaton.nvim' 
+        use 'eandrju/cellular-autmaton.nvim'
+        use {
+            'stevearc/aerial.nvim',
+            config = function() require('aerial').setup() end
+        }
     end
 )
 
