@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>jdt.ls-java-project</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/org/springframework/beans/PropertyValuesEditor11539353368013738970.java</name>
+			<type>1</type>
+			<location>//tmp/kotlinlangserver8904400912741127977/PropertyValuesEditor11539353368013738970.java</location>
+		</link>
+		<link>
+			<name>src/org/springframework/boot/Banner12562632412894040883.java</name>
+			<type>1</type>
+			<location>//tmp/kotlinlangserver8904400912741127977/Banner12562632412894040883.java</location>
+		</link>
+		<link>
+			<name>src/org/springframework/web/HttpSessionRequiredException10044466766590906715.java</name>
+			<type>1</type>
+			<location>//tmp/kotlinlangserver8904400912741127977/HttpSessionRequiredException10044466766590906715.java</location>
+		</link>
+		<link>
+			<name>src/org/springframework/web/WebApplicationInitializer14780260860198779673.java</name>
+			<type>1</type>
+			<location>//tmp/kotlinlangserver8904400912741127977/WebApplicationInitializer14780260860198779673.java</location>
+		</link>
+	</linkedResources>
+</projectDescription>

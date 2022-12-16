@@ -1,0 +1,527 @@
+!SESSION 2022-12-11 01:20:49.091 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.5
+java.vendor=GraalVM Community
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_HK
+Command-line arguments:  -data /home/hokhk/.config/nvim/ftplugin/jdtls-workspace/tmp/kotlinlangserver5720368376873500318
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.469
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.665
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.707
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.709
+!MESSAGE Initializing Java Language Server 1.18.0.202212011657
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.744
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.745
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.751
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:50.751
+!MESSAGE Started org.eclipse.m2e.core 1ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:51.492
+!MESSAGE ProjectRegistryRefreshJob finished 740ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:51.493
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:51.524
+!MESSAGE Started org.eclipse.buildship.core 30ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:51.530
+!MESSAGE RepositoryRegistryUpdateJob finished 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:51.543
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:51.547
+!MESSAGE Creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:51.641
+!MESSAGE Finished creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:52.195
+!MESSAGE Importing Gradle project(s)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:52.196
+!MESSAGE No previous Gradle project at /home/hokhk/myprojects/java/demo_kotlin, it must be synchronized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.744
+!MESSAGE Workspace initialized in 5214ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.771
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.772
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.788
+!MESSAGE >> java/buildWorkspace (incremental)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.791
+!MESSAGE >> New configuration: {java={progressReports={enabled=true}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.792
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.793
+!MESSAGE >> New configuration: {java={progressReports={enabled=true}}}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:56.795
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:57.023
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:57.028
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:57.028
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:57.265
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:57.267
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:57.268
+!MESSAGE >> document/definition
+
+!ENTRY org.eclipse.jdt.ls.core 4 0 2022-12-11 01:20:57.269
+!MESSAGE class com.google.gson.internal.LinkedTreeMap cannot be cast to class java.util.ArrayList (com.google.gson.internal.LinkedTreeMap is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @63eef88a; java.util.ArrayList is in module java.base of loader 'bootstrap')
+!STACK 0
+java.lang.ClassCastException: class com.google.gson.internal.LinkedTreeMap cannot be cast to class java.util.ArrayList (com.google.gson.internal.LinkedTreeMap is in unnamed module of loader org.eclipse.osgi.internal.loader.EquinoxClassLoader @63eef88a; java.util.ArrayList is in module java.base of loader 'bootstrap')
+	at org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer.synchronizeBundles(JDTLanguageServer.java:387)
+	at org.eclipse.jdt.ls.core.internal.handlers.JDTLanguageServer$2.run(JDTLanguageServer.java:285)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:57.489
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:58.030
+!MESSAGE begin problem for /SpringBootApplication2961519299283061342.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:58.031
+!MESSAGE 1 problems reported for /SpringBootApplication2961519299283061342.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:20:58.032
+!MESSAGE Validated 1. Took 91 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:01.149
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:01.752
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:10.929
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:11.688
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.347
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.393
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.433
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.473
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.514
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.553
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.593
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.633
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.673
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.714
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:12.911
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:13.142
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:13.359
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:13.591
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:13.808
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:14.111
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:14.343
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:14.583
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:14.807
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:15.111
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:15.623
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:15.927
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:16.142
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:16.446
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.107
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.147
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.192
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.232
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.272
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.312
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.352
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:17.582
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:18.286
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:18.287
+!MESSAGE >> document/definition
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:18.444
+!MESSAGE >> java/classFileContents
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:18.449
+!MESSAGE ClassFile contents request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:18.460
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:18.529
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:23.619
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:24.246
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:24.904
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:24.951
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:24.991
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.031
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.071
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.111
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.150
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.191
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.232
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.273
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.314
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.355
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.396
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.437
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.477
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.531
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.572
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.612
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.652
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.692
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.731
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.771
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.812
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.851
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.891
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:25.932
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:26.165
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:26.364
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:26.565
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:26.772
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:26.981
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:27.389
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:27.957
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:27.958
+!MESSAGE >> document/definition
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:28.035
+!MESSAGE >> java/classFileContents
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:28.036
+!MESSAGE ClassFile contents request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:28.048
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:28.131
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:29.085
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:29.316
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:32.316
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:32.977
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.017
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.058
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.099
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.140
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.181
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.230
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.270
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.310
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.350
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.390
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.430
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.470
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.510
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.550
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.590
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.630
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.670
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.710
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.750
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.790
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.830
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.870
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.910
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.950
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:33.990
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:34.030
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:34.070
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:34.110
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:34.149
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:34.404
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:34.900
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:35.124
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:35.784
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:35.830
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:35.870
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:35.910
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:35.950
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:35.990
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:36.029
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:36.069
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:36.109
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:36.149
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:36.190
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:36.451
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:44.163
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:44.173
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:48.346
+!MESSAGE >> shutdown
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:48.396
+!MESSAGE >> exit
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:48.446
+!MESSAGE Shutdown received... waking up main thread
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-11 01:21:48.452
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is stopping:

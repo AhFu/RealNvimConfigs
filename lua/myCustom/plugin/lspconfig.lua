@@ -92,16 +92,16 @@ return function (use)
                     capabilities=merged_capabilities
                 }
             end
-            require'lspconfig'.kotlin_language_server.setup{
-                on_attach = on_attach,
-                flags = lsp_flags,
-                capabilities=merged_capabilities,
-                cmd={'/home/hokhk/.local/kotlin-language-server/bin/kotlin-language-server'}
-            }
+            --require'lspconfig'.kotlin_language_server.setup{
+                --on_attach = on_attach,
+                --flags = lsp_flags,
+                --capabilities=merged_capabilities,
+                --cmd={'/home/hokhk/.local/kotlin-language-server/bin/kotlin-language-server'}
+            --}
             --require'lspconfig'.gradle_ls.setup{
                 --filetypes={"kotlin","groovy"},
                 --cmd={'/home/hokhk/.local/vscode-gradle-3.12.6/gradle-language-server/build/install/gradle-language-server/bin/gradle-language-server'},
-                --root_dir=function()return '/home/hokhk/myprojects/java/demo/' end,
+                --root_dir=function()return '/home/hokhk/myprojects/java/demo_kotlin/' end,
                     --on_attach = on_attach,
                     --flags = lsp_flags,
                     --capabilities=merged_capabilities

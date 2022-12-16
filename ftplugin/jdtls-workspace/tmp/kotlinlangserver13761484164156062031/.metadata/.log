@@ -1,0 +1,30 @@
+!SESSION 2022-12-14 20:41:41.719 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.5
+java.vendor=GraalVM Community
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_HK
+Command-line arguments:  -data /home/hokhk/.config/nvim/ftplugin/jdtls-workspace/tmp/kotlinlangserver13761484164156062031
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.131
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.301
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.339
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.342
+!MESSAGE Initializing Java Language Server 1.18.0.202212011657
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.371
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.372
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.reloadBundles, java.project.isTestFile, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.resolveWorkspaceSymbol, java.project.upgradeGradle, java.project.createModuleInfo, java.protobuf.generateSources, java.project.resolveSourceAttachment, java.project.addToSourcePath, java.completion.onDidSelect]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.377
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2022-12-14 20:41:43.378
+!MESSAGE Started org.eclipse.m2e.core 1ms

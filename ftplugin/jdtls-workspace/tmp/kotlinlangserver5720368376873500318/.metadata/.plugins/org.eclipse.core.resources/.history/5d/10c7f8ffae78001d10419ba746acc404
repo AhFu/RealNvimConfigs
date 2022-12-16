@@ -1,0 +1,12 @@
+arguments=--init-script /home/hokhk/.local/jdt-language-server/config_linux/org.eclipse.osgi/51/0/.cp/gradle/init/init.gradle
+auto.sync=false
+build.scans.enabled=false
+connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
+eclipse.preferences.version=1
+gradle.user.home=
+java.home=/home/hokhk/.local/graalvm-ce-java17-22.3.0
+jvm.arguments=
+offline.mode=false
+override.workspace.settings=true
+show.console.view=true
+show.executions.view=true

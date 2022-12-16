@@ -1,3 +1,4 @@
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(
@@ -16,7 +17,7 @@ return require('packer').startup(
         require'myCustom.plugin.cmp'(use)
         require'myCustom.plugin.surround'(use)
         require'myCustom.plugin.trouble'(use)
-       -- require'myCustom.plugin.focus'(use)
+        -- require'myCustom.plugin.focus'(use)
         require'myCustom.plugin.yankstack'(use)
         require'myCustom.plugin.dap'(use)
         require'myCustom.plugin.undoTree'(use)
@@ -26,7 +27,6 @@ return require('packer').startup(
         require'myCustom.plugin.hlslens'(use)
         --   require'myCustom.plugin.wordmotion'(use)
         require'myCustom.plugin.illuminate'(use)
-        use 'udalov/kotlin-vim'
         use'mfussenegger/nvim-jdtls'
         use'pechorin/any-jump.vim'
         use'jose-elias-alvarez/null-ls.nvim'
@@ -47,10 +47,14 @@ return require('packer').startup(
         require'myCustom.plugin.nerdcommenter'(use)
         --    require'myCustom.plugin.persistence'(use)
         use'mhinz/vim-startify'
-        use 'eandrju/cellular-autmaton.nvim'
-        use {
+        use'eandrju/cellular-autmaton.nvim'
+        use{
             'stevearc/aerial.nvim',
             config = function() require('aerial').setup() end
+        }
+        use{
+            opt = true,
+            run = "npm install --legacy-peer-deps && npm run compile"
         }
     end
 )

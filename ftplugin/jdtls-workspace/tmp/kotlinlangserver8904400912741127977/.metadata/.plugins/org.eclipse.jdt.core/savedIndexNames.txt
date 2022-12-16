@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/home/hokhk/.config/nvim/ftplugin/jdtls-workspace/tmp/kotlinlangserver8904400912741127977/.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index
+3374016724.index
+3842426239.index

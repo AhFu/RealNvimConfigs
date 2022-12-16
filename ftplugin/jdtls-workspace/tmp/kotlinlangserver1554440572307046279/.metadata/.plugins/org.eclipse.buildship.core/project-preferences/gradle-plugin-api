@@ -1,0 +1,12 @@
+#
+#Wed Dec 14 21:09:45 HKT 2022
+derivedResources=.gradle\:build
+linkedResources=
+classpath=<?xml version\="1.0" encoding\="UTF-8"?>\n<classpath>\n<classpathentry kind\="lib" path\="/home/hokhk/.gradle/caches/modules-2/files-2.1/org.gradle/gradle-tooling-api/7.3/526c85998c50c960237920a9d98580f35801525d/gradle-tooling-api-7.3.jar" sourcepath\="/home/hokhk/.gradle/caches/modules-2/files-2.1/org.gradle/gradle-tooling-api/7.3/b2446d44ee6c3290fcceed2952cb429baac93eec/gradle-tooling-api-7.3-sources.jar">\n\t<attributes>\n\t\t<attribute name\="gradle_used_by_scope" value\="main,test"/>\n\t</attributes>\n</classpathentry>\n<classpathentry kind\="lib" path\="/home/hokhk/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.30/b5a4b6d16ab13e34a88fae84c35cd5d68cac922c/slf4j-api-1.7.30.jar" sourcepath\="/home/hokhk/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.30/71a1fdefa224da50f1db6306ce609981e20186c9/slf4j-api-1.7.30-sources.jar">\n\t<attributes>\n\t\t<attribute name\="gradle_used_by_scope" value\="main,test"/>\n\t</attributes>\n</classpathentry>\n</classpath>\n
+managedNatures=
+buildDir=build
+managedBuilders=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><commands/>
+buildScriptPath=build.gradle
+subprojectPaths=
+hasAutoBuildTasks=false
+gradleVersion=7.3.3

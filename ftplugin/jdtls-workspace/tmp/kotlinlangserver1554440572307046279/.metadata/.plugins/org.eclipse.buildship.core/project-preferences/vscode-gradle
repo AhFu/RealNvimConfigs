@@ -1,0 +1,12 @@
+#
+#Wed Dec 14 21:09:45 HKT 2022
+derivedResources=.gradle\:build\:extension/out\:gradle-language-server/build\:gradle-plugin/build\:gradle-plugin-api/build\:gradle-server/build\:npm-package/build
+linkedResources=
+classpath=<?xml version\="1.0" encoding\="UTF-8"?>\n<classpath>\n</classpath>\n
+managedNatures=
+buildDir=build
+managedBuilders=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><commands/>
+buildScriptPath=build.gradle
+subprojectPaths=extension\:gradle-language-server\:gradle-plugin\:gradle-plugin-api\:gradle-server\:npm-package
+hasAutoBuildTasks=false
+gradleVersion=7.3.3
