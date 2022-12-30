@@ -92,6 +92,10 @@ return function (use)
                     capabilities=merged_capabilities
                 }
             end
+        end
+    }
+end
+
             --require'lspconfig'.kotlin_language_server.setup{
                 --on_attach = on_attach,
                 --flags = lsp_flags,
@@ -106,8 +110,4 @@ return function (use)
                     --flags = lsp_flags,
                     --capabilities=merged_capabilities
             --}
-
-        end
-    }
-end
 

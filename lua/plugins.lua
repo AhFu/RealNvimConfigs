@@ -52,10 +52,10 @@ return require('packer').startup(
             'stevearc/aerial.nvim',
             config = function() require('aerial').setup() end
         }
-        use{
-            opt = true,
-            run = "npm install --legacy-peer-deps && npm run compile"
-        }
+        --use{
+            --opt = true,
+            --run = "npm install --legacy-peer-deps && npm run compile"
+        --}
     end
 )
 

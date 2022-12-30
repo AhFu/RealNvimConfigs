@@ -31,3 +31,4 @@ opt.foldenable=false
 opt.matchpairs:append("<:>")
 opt.clipboard="unnamedplus" -- allow accessing Linux system clipboard
 vim.g.any_jump_disable_default_keybindings=1
+vim.lsp.set_log_level("debug")

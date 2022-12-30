@@ -44,7 +44,8 @@ return function (use)
                 }
             )
             -- DAP configurations
-            for _, language in ipairs({ "typescript", "javascript" }) do
+        --    for _, language in ipairs({ "typescript", "javascript" }) do
+            for _, language in ipairs({  "javascript" }) do
                 require("dap").configurations[language] = {
                     {
                         type = "pwa-node",
@@ -86,6 +87,11 @@ return function (use)
 end
 
 
+--dap.adapters.kotlin = {
+--type = 'executable',
+--command ='/home/hokhk/.local/kotlin-debug-adapter/bin/kotlin-debug-adapter',
+                --args = { 'projectRoot=/home/hokhk/myprojects/java/demo_kotlin','mainClass=com.example.demo.DemoApplication'}
+ --}
 --dap.adapters.node2 = {
 --type = 'executable',
 --command = 'node',
