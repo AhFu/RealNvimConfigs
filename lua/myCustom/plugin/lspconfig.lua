@@ -77,7 +77,7 @@ return function (use)
                 filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json','sass'},
                 init_options = {
                     typescript = {
-                        serverPath = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+                        tsdk='/usr/local/lib/node_modules/typescript/lib'
                     }
                 },
                 on_attach = on_attach,
